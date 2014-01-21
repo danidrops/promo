@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Promo</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+</head>
+<body>
+
+  <table width="100%" border="0">
+    <tr>
+      <td colspan="3" style="background-color:#390063;color:#DB4848;text-align:center;height:110px;font-size: 20px;">
+        <h1>TRYST</h1>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="background-color:#DB4848;width:500px;text-align:center;">
+        <p><iframe src="//player.vimeo.com/video/78498308?title=0&amp;byline=0&amp;portrait=0&amp;color=390063" width="834" height="469" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+      </td>
+
+      <td style="background-color:#68EDE4;width:200px;">
+        <p><b>TECHNO</b></p>
+        <p>VIDEO</p>
+        <p>BYO-</p>
+        <p>/-</p>
+        <p><b>TRYST</b></p>
+        <p>EXPERIENCE QUEER IN A/V</p>
+        <p>/-</p>
+        <p><b>03.25.14</b></p>
+        <p>23:00-LATE</p>
+        <p>LOCATION TBA</p>
+        <p>/-</p>
+        <p><b>LIMITED PRESALE $10</b></p>
+        <p>BEER IN FRIDGE</p>
+      </td>
+
+      <td style="background-color:#DB4848;height:100%;width:200px;">
+
+        <%= yield %>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="3" style="background-color:#390063;text-align:center;color:#DB4848;height:110px;">
+        QUESTIONS / COMMENTS / CONCERNS / NEED A COMP ? CONTACT EMAIL
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
+
+
