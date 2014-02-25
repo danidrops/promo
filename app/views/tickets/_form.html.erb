@@ -18,7 +18,13 @@
     <%= f.number_field :number, :value => 2, :min => 1, :size => 2 %>
   </div>
 
-  <button id="customButton" data-key="<%= Rails.configuration.stripe[:publishable_key] %>">PURCHASE</button>
-  <!-- THIS BUTTON ISNT LINKING TO TICKETS#CREATE WHERE ALL THE ACTION HAPPENS -->
+
+
+  <div class="actions" id="customButton", data-key="<%= Rails.configuration.stripe[:publishable_key] %>">
+     <%= link_to "PURCHASE", "www.flewent.com", class: 'button' %>
+  </div>
+
+
+
 
 <% end %>
