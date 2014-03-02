@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ * require_tree .
+ *= require_self
+
+
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:700);
+
+body {
+  color: #fff;
+  background-color: #000;
+  font-family: 'Source Code Pro', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color:#FF0099;
+  margin: 0;
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.container {
+  min-width: 1200px;
+  width: 100%;
+  clear: both;
+}
+
+.twelve {
+  text-align: center;
+  float: left;
+  width: 68%;
+  padding: 10px 1%;
+}
+
+.four {
+  float :right;
+  width: 28%;
+  padding: 10px 1%;
+  margin-top: 15px;
+}
+
+.sixteen {
+  float: left;
+  width: 100%;
+}
+
+.top {
+  text-align: center;
+}
+
+.bottom {
+  background-color: #66ffcc;
+  text-align:center;
+  color:#000000;
+  font-weight: bold;
+  padding-top: 10px;
+
+}
+
+.top {
+
+}
+
+.white {
+  background-color: #fff;
+  color: #00;
+}
+
+.pink {
+  background-color:#FF0099;
+  font-weight: bold;
+  color: #000;
+
+}
+
+button.button {
+  border: 0;
+  padding: 15px;
+  color: #fff;
+  background: #00ccff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #00ccff 0%, #cc0099 50%, #cc0099 51%, #00ccff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00ccff), color-stop(50%,#cc0099), color-stop(51%,#cc0099), color-stop(100%,#00ccff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #00ccff 0%,#cc0099 50%,#cc0099 51%,#00ccff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #00ccff 0%,#cc0099 50%,#cc0099 51%,#00ccff 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #00ccff 0%,#cc0099 50%,#cc0099 51%,#00ccff 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #00ccff 0%,#cc0099 50%,#cc0099 51%,#00ccff 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ccff', endColorstr='#00ccff',GradientType=0 ); /* IE6-9 */
+
+}
