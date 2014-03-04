@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require countdown
 //= require_tree .
 
 $(document).ready(function(){
@@ -43,4 +44,12 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
+  updateCountdown();
 });
+
+
+function updateCountdown() {
+    $("#countdown").html(countdown( null, new Date(2014, 2, 7), countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS).toString());
+    setInterval(updateCountdown, 30000);
+  }
+
