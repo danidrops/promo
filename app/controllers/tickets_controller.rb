@@ -1,24 +1,9 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
-  # GET /tickets
-  # GET /tickets.json
-  def index
-    @tickets = Ticket.all
-  end
-
-  # GET /tickets/1
-  # GET /tickets/1.json
-  def show
-  end
-
   # GET /tickets/new
   def new
     @ticket = Ticket.new
-  end
-
-  # GET /tickets/1/edit
-  def edit
   end
 
   # POST /tickets
@@ -26,52 +11,28 @@ class TicketsController < ApplicationController
   def create
     # controller
 
-def create
-  # Amount in cents
-  @amount =  2000
+  def create
+    # Amount in cents
+    @amount =  2000
 
-  customer = Stripe::Customer.create(
-    :email => params[:stripeEmail],
-    :card  => params[:stripeToken]
-  )
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :card  => params[:stripeToken]
+    )
 
-  charge = Stripe::Charge.create(
-    :customer    => customer.id,
-    :amount      => @amount,
-    :description => 'Rails Stripe customer',
-    :currency    => 'cad'
-  )
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'cad'
+    )
 
-  @ticket = Ticket.create({ email: params[:email], number: params[:data-amount]/1000 })
-  @mailer = TicketMailer.deliver!(@ticket) # or something like this, you have to create the ticket mailer
+    @ticket = Ticket.create({ email: params[:email], number: params[:data-amount]/1000 })
+    @mailer = TicketMailer.deliver!(@ticket) # or something like this, you have to create the ticket mailer
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to charges_path
-  end
-end
-
-  # PATCH/PUT /tickets/1
-  # PATCH/PUT /tickets/1.json
-  def update
-    respond_to do |format|
-      if @ticket.update(ticket_params)
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /tickets/1
-  # DELETE /tickets/1.json
-  def destroy
-    @ticket.destroy
-    respond_to do |format|
-      format.html { redirect_to tickets_url }
-      format.json { head :no_content }
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to charges_path
     end
   end
 
