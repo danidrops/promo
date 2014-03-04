@@ -43,5 +43,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+# serve assets on Heroku
+gem 'rails_serve_static_assets', group: [:production]
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
