@@ -4,10 +4,10 @@ class TicketsMailer < ActionMailer::Base
 
   def ticket_sender(ticket)
     @ticket = ticket
-    backgroundpath = "public/images/BlankTicket.pdf"
+    backgroundpath = "public/templates/BlankTicket.pdf"
 
     incr = 1
-    for incr <= @ticket.number
+    for incr <= @ticket.number do
       stub_code = @ticket.id.to_s + "-" + incr.to_s
       Prawn::Document.generate("public/pdfs/TrystTicketNo#{stub_code}.pdf") do
         image backgroundpath, :width => 500, :height => 300

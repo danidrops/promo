@@ -1,0 +1,26 @@
+<h1>Ticket stub list</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stub Code</th>
+      <th>Ticket ID</th>
+      <th>Email</th>
+      <th>Number</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stubs.each do |stub| %>
+      <tr>
+        <td><%= stub.code %></td>
+        <td><%= stub.ticket_id %></td>
+        <td><%= stub.ticket.email %></td>
+        <td><%= stub.ticket.number %></td>
+        <td><%= stub.ticket.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
