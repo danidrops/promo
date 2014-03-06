@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+class StubsController < ActionController::Base
 
   # GET /stubs
   def index
