@@ -50,6 +50,6 @@ $(document).ready(function(){
 
 function updateCountdown() {
     $("#countdown").html(countdown( null, new Date(2014, 2, 7, 16), countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS).toString());
-    setInterval(updateCountdown, 1000);
+    setInterval(updateCountdown, 10000);
   }
 
