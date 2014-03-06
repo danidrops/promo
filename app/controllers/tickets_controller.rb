@@ -10,7 +10,7 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     # Amount in cents
-    @amount = params[:ticket][:number] * 800
+    @amount = params[:ticket][:number].to_i * 800 # CHANGE TICKET PRICE HERE AND IN APPLICATION.JS
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],

@@ -17,7 +17,8 @@
 //= require_tree .
 
 $(document).ready(function(){
-  var quantity, amount, price, description;
+  var quantity, amount, payment, description;
+  var price = 8; // CHANGE TICKET PRICE HERE AND IN TICKETS_CONTROLLER
 
   var key = $('#customButton').data('key');
 
@@ -28,16 +29,15 @@ $(document).ready(function(){
       // Use the token to create the charge with a server-side script.
       var tokenInput = $("<input type=hidden name=stripeToken />").val(token.id);
       var emailInput = $("<input type=hidden name=stripeEmail />").val(token.email);
-      console.log(token.id, token.email);
       $("#new_ticket").append(tokenInput).append(emailInput).submit();
     }
   });
 
   $('#customButton').on('click', function(e) {
     quantity = parseInt($('#ticket_number').val());
-    amount = quantity * 800;
-    price = quantity * 8;
-    description = quantity + ' tickets at $' + price;
+    amount = quantity * price * 100;
+    payment = quantity * price;
+    description = quantity + ' tickets at $' + payment;
 
     // Open Checkout with further options
     handler.open({
