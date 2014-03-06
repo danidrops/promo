@@ -1,6 +1,5 @@
 class TicketsMailer < ActionMailer::Base
   default from: 'tryst@gmail.com'
-  layout 'email'
 
   def ticket_sender(ticket)
     @ticket = ticket
