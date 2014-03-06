@@ -26,13 +26,17 @@ $(document).ready(function(){
     image: '/square-image.png',
     token: function(token, args) {
       // Use the token to create the charge with a server-side script.
+      var tokenInput = $("<input type=hidden name=stripeToken />").val(token.id);
+      var emailInput = $("<input type=hidden name=stripeEmail />").val(token.email);
+      console.log(token.id, token.email);
+      $("#new_ticket").append(tokenInput).append(emailInput).submit();
     }
   });
 
   $('#customButton').on('click', function(e) {
     quantity = parseInt($('#ticket_number').val());
-    amount = quantity * 1000;
-    price = quantity * 10;
+    amount = quantity * 800;
+    price = quantity * 8;
     description = quantity + ' tickets at $' + price;
 
     // Open Checkout with further options
