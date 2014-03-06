@@ -48,12 +48,7 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
-  updateCountdown();
+
 });
 
-
-function updateCountdown() {
-    $("#countdown").html(countdown( null, new Date(2014, 2, 7), countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS).toString());
-    setInterval(updateCountdown, 1000);
-  }
-
+ 

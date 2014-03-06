@@ -10,7 +10,7 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     # Amount in cents
-    @amount =  2000
+    @amount = params[:ticket][:number] * 800
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -24,7 +24,7 @@ class TicketsController < ApplicationController
       :currency    => 'cad'
     )
 
-    @ticket = Ticket.create({ email: params[:email], number: params[:data[:amount]]/1000 })
+    @ticket = Ticket.create({ email: params[:stripeEmail], number: params[:ticket][:number]})
     #@mailer = TicketMailer.deliver!(@ticket) # or something like this, you have to create the ticket mailer
 
   rescue Stripe::CardError => e
