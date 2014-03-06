@@ -9,9 +9,6 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    # controller
-
-  def create
     # Amount in cents
     @amount =  2000
 
@@ -27,13 +24,12 @@ class TicketsController < ApplicationController
       :currency    => 'cad'
     )
 
-    @ticket = Ticket.create({ email: params[:email], number: params[:data-amount]/1000 })
-    @mailer = TicketMailer.deliver!(@ticket) # or something like this, you have to create the ticket mailer
+    @ticket = Ticket.create({ email: params[:email], number: params[:data[:amount]]/1000 })
+    #@mailer = TicketMailer.deliver!(@ticket) # or something like this, you have to create the ticket mailer
 
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to charges_path
-    end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charges_path
   end
 
   private
