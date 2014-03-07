@@ -27,7 +27,7 @@ class TicketsController < ApplicationController
       :currency    => 'cad'
     )
 
-    @ticket = Ticket.create({ email: @email, number: @number, note: "test live stripe"}) #CHANGE TICKET PRICE NOTE HERE
+    @ticket = Ticket.create({ email: @email, number: @number, note: "ONLINE $8"}) #CHANGE TICKET PRICE NOTE HERE
     TicketsMailer.ticket_sender(@ticket).deliver
 
 
