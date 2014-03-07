@@ -12,14 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :number, "# OF TICKETS" %><br>
-    <%= f.number_field :number, :value => 2, :min => 1, :size => 2 %>
-    <br />
-    <%= f.label :email %> <br />
-    <%= f.email_field :email %>
+    <%= f.number_field :number, :value => 2, :min => 1 %> TICKETS AT $8
   </div>
-
-
 
   <div class="actions" id="customButton", data-key="<%= Rails.configuration.stripe[:publishable_key] %>">
      <%= button_tag "B U Y", class: 'button' %>

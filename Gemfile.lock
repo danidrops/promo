@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/stripe/stripe-ruby
-  revision: d7ddf47d57736b607b9d0717a114ceb6bcd3f4b0
+  revision: 637d5899f614a6f4d0fa2147f9b3b8b1c8b39b28
   specs:
-    stripe (1.9.9)
+    stripe (1.10.2)
+      json (~> 1.8.1)
       mime-types (~> 1.25)
-      multi_json (>= 1.0.4, < 2)
       rest-client (~> 1.4)
 
 GEM
@@ -34,8 +34,8 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    arel (4.0.1)
-    atomic (1.1.14)
+    arel (4.0.2)
+    atomic (1.1.15)
     builder (3.1.4)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -43,15 +43,18 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
+    coffee-script-source (1.7.0)
     erubis (2.7.0)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.0.2)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-rails (3.0.4)
+    jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
@@ -60,9 +63,13 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
-    multi_json (1.8.4)
+    multi_json (1.9.0)
+    pdf-core (0.1.6)
     pg (0.17.1)
-    polyglot (0.3.3)
+    polyglot (0.3.4)
+    prawn (0.15.0)
+      pdf-core (~> 0.1.3)
+      ttfunk (~> 1.1.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -85,7 +92,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    sass (3.2.13)
+    sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -93,7 +100,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    sprockets (2.10.1)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -103,13 +110,14 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     thor (0.18.1)
-    thread_safe (0.1.3)
-      atomic
+    thread_safe (0.2.0)
+      atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.0)
+    ttfunk (1.1.1)
+    turbolinks (2.2.1)
       coffee-rails
     tzinfo (0.3.38)
     uglifier (2.4.0)
@@ -121,9 +129,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  exception_notification
   jbuilder (~> 1.2)
   jquery-rails
   pg
+  prawn
   rails (= 4.0.1)
   rails_serve_static_assets
   sass-rails (~> 4.0.0)

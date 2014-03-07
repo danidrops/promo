@@ -11,17 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120185410) do
+ActiveRecord::Schema.define(version: 20140306072459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
+
+  create_table "stubs", force: true do |t|
+    t.string   "code"
+    t.integer  "ticket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tickets", force: true do |t|
     t.string   "email"
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "note"
   end
 
 end

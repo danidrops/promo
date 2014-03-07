@@ -1,0 +1,25 @@
+<h1>Ticket stub list</h1>
+
+<table border="1" style="width:800px;">
+  <thead>
+    <tr>
+      <th>Stub Code</th>
+      <th>Note</th>
+      <th>Email</th>
+      <th>Ticket ID</th>
+      <th>Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stubs.each do |stub| %>
+      <tr>
+        <td><%= stub.code %></td>
+        <td><%= stub.ticket.note %></td>
+        <td><%= stub.ticket.email %></td>
+        <td><%= stub.ticket_id %></td>
+        <td><%= stub.ticket.number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

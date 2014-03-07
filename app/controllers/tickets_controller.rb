@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  require "prawn"
 
   # GET /tickets/new
   def new
@@ -9,11 +10,10 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    # controller
-
-  def create
     # Amount in cents
-    @amount =  2000
+    @number = params[:ticket][:number].to_i
+    @email = params[:stripeEmail]
+    @amount = @number * 800 # CHANGE TICKET PRICE HERE AND IN APPLICATION.JS AND NOTE BELOW
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -27,13 +27,13 @@ class TicketsController < ApplicationController
       :currency    => 'cad'
     )
 
-    @ticket = Ticket.create({ email: params[:email], number: params[:data-amount]/1000 })
-    @mailer = TicketMailer.deliver!(@ticket) # or something like this, you have to create the ticket mailer
+    @ticket = Ticket.create({ email: @email, number: @number, note: "heroku test"}) #CHANGE TICKET PRICE NOTE HERE
+    TicketsMailer.ticket_sender(@ticket).deliver
 
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to charges_path
-    end
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charges_path
   end
 
   private
@@ -46,4 +46,5 @@ class TicketsController < ApplicationController
     def ticket_params
       params.require(:ticket).permit(:number)
     end
+
 end
