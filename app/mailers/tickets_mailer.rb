@@ -8,7 +8,7 @@ class TicketsMailer < ActionMailer::Base
     incr = 1
     @ticket.number.times do
       stub_code = @ticket.id.to_s + "-" + incr.to_s
-      attachments["TrystTicketNo#{stub_code}.pdf"] = Prawn::Document.generate() do
+      Prawn::Document.generate(attachments["TrystTicketNo#{stub_code}.pdf"]) do
         image backgroundpath
         draw_text stub_code, :at => [250,265], :size => 20
       end
