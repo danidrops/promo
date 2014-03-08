@@ -1,5 +1,5 @@
 class TicketsMailer < ActionMailer::Base
-  default from: 'tryst@gmail.com'
+  default from: 'trystmtl@gmail.com'
 
   def ticket_sender(ticket)
     @ticket = ticket
