@@ -13,7 +13,7 @@ class TicketsController < ApplicationController
     # Amount in cents
     @number = params[:ticket][:number].to_i
     @email = params[:stripeEmail]
-    @amount = @number * 800 # CHANGE TICKET PRICE HERE AND IN APPLICATION.JS AND NOTE BELOW
+    @amount = @number * 1000 # CHANGE TICKET PRICE HERE AND IN APPLICATION.JS AND NOTE BELOW
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -27,7 +27,7 @@ class TicketsController < ApplicationController
       :currency    => 'cad'
     )
 
-    @ticket = Ticket.create({ email: @email, number: @number, note: "ONLINE $8"}) #CHANGE TICKET PRICE NOTE HERE
+    @ticket = Ticket.create({ email: @email, number: @number, note: "ONLINE $10"}) #CHANGE TICKET PRICE NOTE HERE
     TicketsMailer.ticket_sender(@ticket).deliver
 
 

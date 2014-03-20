@@ -18,7 +18,7 @@
 
 $(document).ready(function(){
   var quantity, amount, payment, description;
-  var price = 8; // CHANGE TICKET PRICE HERE AND IN TICKETS_CONTROLLER
+  var price = 10; // CHANGE TICKET PRICE HERE AND IN TICKETS_CONTROLLER
 
   var key = $('#customButton').data('key');
 
